@@ -1,19 +1,28 @@
-import React,{useState} from "react";
-import "./App.css";
-// import {Navbar} from './index.js';
-import {Tasks} from './index.js';
+import React, { useState } from 'react';
+import './App.css';
+// import {Navbar,Tasks} from './index.js';
+import { data } from './index.js';
 
 function App() {
-  const [value,setValue] = useState(false);
+  const [value, setValue] = useState('');
+
+  const takeInput = (input) => {
+    setValue(input.target.value);
+  }
+
+  const submitValue = () => {
+    data = [...data,value];
+    setValue('');
+  }
 
   return (
     <div>
       {/* <Navbar /> */}
-      <Tasks />
+      {/* <Tasks /> */}
       <h1>Habit Tracker</h1>
       <div className="add-page">
-        <input type="text"/>
-        <button>+ Add Habit</button>
+        <input onChange={takeInput} type="text" value={value}/>
+        <button onClick={submitValue} type=''>+ Add Habit</button>
       </div>
     </div>
   );
