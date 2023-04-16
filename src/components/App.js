@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import './App.css';
-// import {Navbar,Tasks} from './index.js';
+import {Navbar} from './index.js';
 import { data } from './index.js';
-
+import './App.css';
 function App() {
   const [value, setValue] = useState('');
 
@@ -17,7 +16,7 @@ function App() {
 
   return (
     <div>
-      {/* <Navbar /> */}
+      <Navbar />
       {/* <Tasks /> */}
       <h1>Habit Tracker</h1>
       <div className="add-page">
