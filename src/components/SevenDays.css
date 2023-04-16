@@ -1,0 +1,14 @@
+.date-box{
+  margin-top: 10px;
+  /* width: 50%; */
+  height: 100px;
+  text-align: center;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icons span{
+  font-size: 50px;
+}
