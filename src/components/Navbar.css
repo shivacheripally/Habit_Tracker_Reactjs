@@ -1,0 +1,14 @@
+.nav{
+  width: 100%;
+  min-height: 70px;
+  background-color: bisque;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav li{
+  display: inline-block;
+  font-size: 25px;
+  margin-right: 20px;
+}
