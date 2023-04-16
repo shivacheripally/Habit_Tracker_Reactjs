@@ -1,7 +1,8 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import './Navbar.css';
-import { App, Tasks } from './index.js';
+import App from './App.js';
+import Tasks from './Tasks.js'
 
 function Navbar() {
   return (
@@ -9,20 +10,20 @@ function Navbar() {
       <div className="nav">
         <ul>
           <li>
-            <NavLink exact to="/">
+            <Link to="/">
               Home
-            </NavLink>
+            </Link>
           </li>
           <li>
-            <NavLink exact to="/tasks">
+            <Link to="/tasks">
               Tasks
-            </NavLink>
+            </Link>
           </li>
         </ul>
         <div className="content">
           <Routes>
-            <Route exact path="/" element={<App />} />
-            <Route exact path="/tasks" element={<Tasks />} />
+            {/* <Route exact path="/" element={<App/>} /> */}
+            <Route path="/tasks" element={<Tasks/>} />
           </Routes>
         </div>
       </div>
