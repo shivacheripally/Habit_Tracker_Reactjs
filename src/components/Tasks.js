@@ -6,8 +6,8 @@ function Tasks() {
     <div>
       <h1>Tasks</h1>
       <div className="list">
-        {data.map(taskData => 
-          (<h4>{taskData}</h4>))}
+        {data.map((taskData,index) => 
+          (<h4 key={index}>{taskData}</h4>))}
       </div>
     </div>
   );
