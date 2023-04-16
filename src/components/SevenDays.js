@@ -13,17 +13,18 @@ function SevenDays() {
     }
     setDays(daysArr);
   }, []);
-
+  const color ='red';
   return (
     <div>
       {days.map((day, index) => (
         <div className='date-box'>
           <div key={index}>{day}</div>
           <div className="icons">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span><i class="fa-solid fa-check"></i></span>
+            <span><i class="fa-solid fa-xmark"></i></span>
+            <span><i class="fa-regular fa-circle-dot"></i></span>
           </div>
+          <div className='status'><span>Staus: Not Seen</span></div>
         </div>
       ))}
     </div>
