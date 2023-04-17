@@ -5,6 +5,6 @@ import data from '../data.js';
 import Tasks from './Tasks.js';
 import AddHabit from './AddHabit.js';
 import Home from './Home.js';
-import ManageComponent from './ManageComponent.js';
+import TaskView from './TaskView.js';
 
-export {App,Navbar,SevenDays,data,Tasks,AddHabit,Home,ManageComponent};
+export {App,Navbar,SevenDays,data,Tasks,AddHabit,Home,TaskView};
