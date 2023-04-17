@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import {data} from './index.js';
+
 import './AddHabit.css';
 function AddHabit() {
   const [value, setValue] = useState('');
