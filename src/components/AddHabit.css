@@ -23,3 +23,9 @@ button{
   height: auto;
   font-size: 25px;
 }
+
+@media screen and (max-width:500px){
+  .add-page input{
+    width: 90%;
+  }
+}
