@@ -1,30 +1,18 @@
-import React, { useState } from 'react';
-import {Navbar} from './index.js';
-import { data } from './index.js';
-import './App.css';
-function App() {
-  const [value, setValue] = useState('');
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { Tasks, AddHabit, Navbar, Home } from './index.js';
 
-  const takeInput = (input) => {
-    setValue(input.target.value);
-  }
-
-  const submitValue = () => {
-    data = [...data,value];
-    setValue('');
-  }
-
+export default function App() {
   return (
     <div>
       <Navbar />
-      {/* <Tasks /> */}
-      <h1>Habit Tracker</h1>
-      <div className="add-page">
-        <input onChange={takeInput} type="text" value={value}/>
-        <button onClick={submitValue} type=''>+ Add Habit</button>
+      <div className="content">
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/tasks" element={<Tasks />} />
+          <Route path="/addhabit" element={<AddHabit />} />
+        </Routes>
       </div>
     </div>
   );
 }
-
-export default App;

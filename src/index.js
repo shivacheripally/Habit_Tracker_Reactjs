@@ -1,15 +1,16 @@
 import React, { StrictMode } from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { createRoot } from 'react-dom/client';
-// import SevenDays from './components/SevenDays.js';
-
 import App from './components/App';
+
 
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 
 root.render(
   <StrictMode>
-    <App />
-    {/* <SevenDays /> */}
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </StrictMode>
 );
