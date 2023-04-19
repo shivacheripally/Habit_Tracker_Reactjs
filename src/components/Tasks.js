@@ -15,8 +15,13 @@ function Tasks() {
       <h1>Tasks</h1>
       <TaskView index={index} menuVisibility={visible} clickEvent={handleClick}/>
       <div className="list">
-        {data.map((taskData,index) => 
-          (<h4 onClick={()=>handleClick(index)} key={index}>{taskData}</h4>))}
+      {data.map(item => (
+        <div key={item.date}>
+          <p>Date: {item.date}</p>
+          <p>Status: {item.status}</p>
+          <p>Color: {item.color}</p>
+        </div>
+      ))}
       </div>
     </div>
   );

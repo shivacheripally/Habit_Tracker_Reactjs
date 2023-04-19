@@ -9,10 +9,11 @@ for (let i = 6; i >= 0; i--) {
   daysArr.push(date.toISOString().substring(0, 10));
 }
 
-const data = daysArr.map(date => ({
+const data = daysArr.reverse().map(date => ({
   date,
   status: "NOT SEEN",
   color: "white"
 }));
+
 
 export default data;

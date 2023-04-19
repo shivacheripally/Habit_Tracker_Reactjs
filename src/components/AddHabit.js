@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {data} from './index.js';
+// import {data} from './index.js';
 
 import './AddHabit.css';
 function AddHabit() {
@@ -10,7 +10,7 @@ function AddHabit() {
   }
 
   const submitValue = () => {
-    data = [...data,value];
+    // data = [...data,value];
     setValue('');
   }
 
