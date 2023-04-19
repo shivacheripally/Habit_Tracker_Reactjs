@@ -6,8 +6,8 @@ import Status from './reducers';
 import App from './components/App';
 
 const store = createStore(Status);
-console.log('store',store);
-console.log('initial State: ',store.getState());
+// console.log('store',store);
+// console.log('initial State: ',store.getState());
 
 
 const rootElement = document.getElementById('root');
