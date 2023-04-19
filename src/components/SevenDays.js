@@ -2,14 +2,16 @@ import React, { useState, useEffect } from "react";
 import data from '../data.js';
 import './SevenDays.css';
 
-console.log('seven days',data);
+console.log(data);
 function SevenDays(props) {
 
   return (
-    <div className='container'>
-      {data.map((day, index) => (
-        <div key={index} className='date-box'>
-          
+    <div>
+      {data.map(item => (
+        <div key={item.date}>
+          <p>Date: {item.date}</p>
+          <p>Status: {item.status}</p>
+          <p>Color: {item.color}</p>
         </div>
       ))}
     </div>
