@@ -1,15 +1,9 @@
 import React from 'react';
-import {DONE,NOTDONE,NOTSEEN} from '../actions/actionTypes.js';
+import {DONE,NOTDONE,NOTSEEN,ADDHABIT} from '../actions/actionTypes.js';
 
 export default function Status(status = [],action){
-  if(action.type === DONE){
-
-  }
-  else if(action.type === NOTDONE){
-
-  }
-  else if(action.type === NOTSEEN){
-
+  if(action.type === ADDHABIT){
+    
   }
   else return status;
 }

@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { data,TaskView } from './index.js';
+import { list,TaskView } from './index.js';
 
 function Tasks() {
   const [index,setIndex] = useState('');
@@ -15,11 +15,9 @@ function Tasks() {
       <h1>Tasks</h1>
       <TaskView index={index} menuVisibility={visible} clickEvent={handleClick}/>
       <div className="list">
-      {data.map(item => (
+      {list.map(item => (
         <div key={item.date}>
-          <p>Date: {item.date}</p>
-          <p>Status: {item.status}</p>
-          <p>Color: {item.color}</p>
+          <h4>{item}</h4>
         </div>
       ))}
       </div>

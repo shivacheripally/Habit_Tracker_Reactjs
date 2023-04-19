@@ -16,7 +16,7 @@ const root = createRoot(rootElement);
 root.render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <App store={store}/>
     </BrowserRouter>
   </StrictMode>
 );
