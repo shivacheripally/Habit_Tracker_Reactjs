@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { SevenDays } from './index.js';
+import { connect } from 'react-redux';
 import './TaskView.css';
 
 function TaskView(props) {
-  const { store } = props;
+  const { habits } = props;
+  
   
   const indexValue = props.menuVisibility.indexValue;
 
-  const days = store.getState().state.habits[indexValue].days;
+  const days = habits[indexValue].days;
   
   var isVisible = 'hide';
 
@@ -29,4 +31,12 @@ function TaskView(props) {
   );
 }
 
-export default TaskView;
+const mapStateToProps = (state) => {
+  console.log("mapStateToProps",state.state.habits);
+  return{
+    habits:state,
+    days: state.state.habits[0].days
+  }
+}
+
+export default connect(mapStateToProps)(TaskView);
