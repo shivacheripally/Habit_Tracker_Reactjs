@@ -1,5 +1,5 @@
 import React from 'react';
-import {DONE,NOTDONE,NOTSEEN,ADDHABIT,UPDATE} from '../actions/actionTypes.js';
+import {DONE,NOTDONE,NOTSEEN,ADD_HABIT,UPDATE} from '../actions/actionTypes.js';
 
 const initialStatus = {
   habits : [
@@ -19,30 +19,15 @@ const initialStatus = {
           status:DONE
         }
       ]
-    },
-    {
-      title: "Read a book",
-      days: [
-        {
-          day:1,
-          status:NOTDONE
-        },
-        {
-          day:2,
-          status:DONE
-        },
-        {
-          day:3,
-          status:NOTSEEN
-        }
-      ]
     }
   ]
 }
 
 export default function Status(state = initialStatus,action){
+  console.log("action",action.newHabit);
   switch(action.type){
-    case ADDHABIT:
+    case ADD_HABIT:
+    console.log("ADDHABIT",state);
     return{
       habits:[...state.habits,action.newHabit]
     }
