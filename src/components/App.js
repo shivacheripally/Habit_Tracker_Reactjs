@@ -1,13 +1,8 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Tasks, AddHabit, Navbar, Home } from './index.js';
-import { connect } from 'react-redux';
 
-function App(props) {
-  const {store} = props;
-  console.log("app",props);
-  // const habits = props.state.habits;
-  // console.log("habits",habits);
+function App() {
 
   return (
     <div>
@@ -22,9 +17,4 @@ function App(props) {
     </div>
   );
 }
-
-const mapStateToProps = state => ({
-  habits: state.habits
-});
-
-export default connect(mapStateToProps)(App);
+export default App;
