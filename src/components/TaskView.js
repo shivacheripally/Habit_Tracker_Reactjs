@@ -1,25 +1,33 @@
-import React,{useState} from 'react';
-import {SevenDays} from './index.js';
-import "./TaskView.css";
+import React, { useState } from 'react';
+import { SevenDays } from './index.js';
+import './TaskView.css';
 
-function TaskView(props){
-  var isVisible = "hide";
-  var index = props.index;
-  const [clicked,setClicked] = useState(false);
+function TaskView(props) {
+  const { store } = props;
+  
+  const state = store.getState().state;
 
-  const isClicked=(value)=>{
-    setClicked(!clicked);
-    console.log(value);
+  const indexValue = props.menuVisibility.indexValue;
+  console.log(indexValue);
+  const days = state.habits[indexValue].days;
+  
+  var isVisible = 'hide';
+
+  if (props.menuVisibility.visible) {
+    isVisible = 'show';
   }
-
-  if(props.menuVisibility){
-    isVisible = "show";
-  }
-
-  return(
-     <div id="menu" className={isVisible}>
-       <button onMouseDown={props.clickEvent}>Close</button>
-     </div>
+  return (
+    <div id="menu" className={isVisible}>
+      <button onMouseDown={props.clickEvent}>Close</button>
+      {days.map((day) => {
+        return (
+          <div>
+            <p>DATE: {day.day}</p>
+            <p>STATUS: {day.status}</p>
+          </div>
+        );
+      })}
+    </div>
   );
 }
 

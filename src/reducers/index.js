@@ -7,16 +7,33 @@ const initialStatus = {
       title: "Go to gym",
       days: [
         {
-          day1:1,
+          day:1,
           status:DONE
         },
         {
-          day1:2,
+          day:2,
           status:DONE
         },
         {
-          day1:3,
+          day:3,
           status:DONE
+        }
+      ]
+    },
+    {
+      title: "Read a book",
+      days: [
+        {
+          day:1,
+          status:NOTDONE
+        },
+        {
+          day:2,
+          status:DONE
+        },
+        {
+          day:3,
+          status:NOTSEEN
         }
       ]
     }
