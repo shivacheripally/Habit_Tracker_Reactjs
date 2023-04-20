@@ -1,21 +1,8 @@
-import {DONE,NOTDONE,NOTSEEN} from './actionTypes';
-import {list} from '../HabitsList';
-
-{
-  type: DONE
-}
-
-{
-  type: NOTDONE
-}
-
-{
-  type: NOTSEEN
-}
+import {DONE,NOTDONE,NOTSEEN,ADD_HABIT} from './actionTypes';
 
 export function addHabit(newHabit){
   return({
-    type: 'ADD_HABIT',
-    list : [...list,newHabit]
+    type: ADD_HABIT,
+    newHabit
   });
 }

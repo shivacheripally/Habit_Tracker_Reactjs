@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import {data, SevenDays} from './index.js';
+import {SevenDays} from './index.js';
 import "./TaskView.css";
 
 function TaskView(props){
@@ -19,8 +19,6 @@ function TaskView(props){
   return(
      <div id="menu" className={isVisible}>
        <button onMouseDown={props.clickEvent}>Close</button>
-       <h1>{data[index]}</h1>
-       <SevenDays isClicked={isClicked}/>
      </div>
   );
 }
