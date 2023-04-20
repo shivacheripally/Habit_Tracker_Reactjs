@@ -5,11 +5,9 @@ import './TaskView.css';
 function TaskView(props) {
   const { store } = props;
   
-  const state = store.getState().state;
-
   const indexValue = props.menuVisibility.indexValue;
-  console.log(indexValue);
-  const days = state.habits[indexValue].days;
+
+  const days = store.getState().state.habits[indexValue].days;
   
   var isVisible = 'hide';
 
@@ -18,7 +16,7 @@ function TaskView(props) {
   }
   return (
     <div id="menu" className={isVisible}>
-      <button onMouseDown={props.clickEvent}>Close</button>
+      <button onMouseDown={() => {props.clickEvent(indexValue)}}>Close</button>
       {days.map((day) => {
         return (
           <div>
