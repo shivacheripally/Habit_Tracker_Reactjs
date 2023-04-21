@@ -5,4 +5,4 @@ import AddHabit from './AddHabit.js';
 import Home from './Home.js';
 import TaskView from './TaskView.js';
 
-export {App,Navbar,SevenDays,Tasks,AddHabit,Home,TaskView};
+export {App,Navbar,Tasks,AddHabit,Home,TaskView};
