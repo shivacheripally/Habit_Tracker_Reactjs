@@ -4,11 +4,8 @@ import { connect } from 'react-redux';
 import './TaskView.css';
 
 function TaskView(props) {
-  const habits = props.habits.state.habits;
-  
-  const indexValue = props.menuVisibility.indexValue;
 
-  const days = habits[indexValue].days;
+  const days = props.habit.days;
   
   var isVisible = 'hide';
 
@@ -17,10 +14,10 @@ function TaskView(props) {
   }
   return (
     <div id="menu" className={isVisible}>
-      <button onMouseDown={() => {props.clickEvent(indexValue)}}>Close</button>
+      <button onMouseDown={props.clickEvent}>Close</button>
       {days.map((day,index) => {
         return (
-          <div key={`index-${index}`}>
+          <div className="day-box" key={`index-${index}`}>
             <p>DATE: {day.day}</p>
             <p>STATUS: {day.status}</p>
           </div>

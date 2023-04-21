@@ -3,38 +3,30 @@ import { TaskView } from './index.js';
 import { connect } from 'react-redux';
 
 function Tasks(props) {
-  console.log("props",props.habits);
-  const habits = props.habits;
-
-  console.log("habits",habits);
-
+  const habits = props.habits.habits;
   const [visible, setVisible] = useState(false);
-  const [indexValue,setIndexValue] = useState(0);
 
-  const handleClick = (value) => {
+  const handleClick = (e) => {
     setVisible(!visible);
-    setIndexValue(value);
   };
 
   return (
     <div>
       <h1>Tasks</h1>
-      {/* {console.log('Tasks',habits)} */}
-      {/* {habits.map((habit, index) => {
+      {habits.map((habit, index) => {
         return (
           <div>
-            <h4 onClick={()=>handleClick(index)}>{habit.title}</h4>
+            <h4 onClick={handleClick}>{habit.title}</h4>
             
-            <TaskView key={`index-${index}`} menuVisibility={{visible,indexValue}} clickEvent={handleClick} habits={habits} />
+            <TaskView habit={habit} key={`index-${index}`} menuVisibility={{visible}} clickEvent={handleClick} habits={habits} />
           </div>
         );
-      })} */}
+      })}
     </div>
   );
 }
 
 const mapStateToProps = (state)=>{
-  // console.log("mapStateToProps",state);
   return{
     habits: state
   }

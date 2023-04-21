@@ -1,40 +1,73 @@
-import React from 'react';
-import {DONE,NOTDONE,NOTSEEN,ADD_HABIT,UPDATE} from '../actions/actionTypes.js';
+import { ADD_HABIT, UPDATE_HABIT_STATUS,DONE, NOT_DONE, NONE } from '../actions/actionTypes';
 
-const initialStatus = {
-  habits : [
+const initialState = {
+  habits: [
     {
-      title: "Go to gym",
+      title: 'Go to Gym',
       days: [
         {
-          day:1,
-          status:DONE
+          day: 1,
+          status: DONE,
         },
         {
-          day:2,
-          status:DONE
+          day: 2,
+          status: NOT_DONE,
         },
         {
-          day:3,
-          status:DONE
+          day: 3,
+          status: NONE,
+        },
+        {
+          day: 4,
+          status: DONE,
+        },
+        {
+          day: 5,
+          status: NONE,
+        },
+        {
+          day: 6,
+          status: NOT_DONE,
+        },
+        {
+          day: 7,
+          status: NOT_DONE,
         }
       ]
     }
   ]
-}
+};
 
-export default function Status(state = initialStatus, action) {
-  // console.log("action", action.newHabit);
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_HABIT:
-      // console.log("ADDHABIT", state);
       return {
-        habits: Array.isArray(state.habits)
-          ? [...state.habits, action.newHabit]
-          : [action.newHabit],
+        habits: [...state.habits, action.payload],
       };
+
+    // structure of habit array
+    // habits = [title, description, consistency[day, status]]
+
+    case UPDATE_HABIT_STATUS:
+      // get index of title from habits array
+      const idx = state.habits
+        .map((e) => {
+          return e.title;
+        })
+        .indexOf(action.title);
+
+      // use day - 1 as index of consistency array and change status of habit
+      if (action.payload === DONE) {
+        state.habits[idx].consistency[action.day - 1].status = NOT_DONE;
+      } else if (action.payload === NOT_DONE) {
+        state.habits[idx].consistency[action.day - 1].status = NONE;
+      } else if (action.payload === NONE) {
+        state.habits[idx].consistency[action.day - 1].status = DONE;
+      }
+      return state;
     default:
       return state;
   }
-}
+};
 
+export default reducer;

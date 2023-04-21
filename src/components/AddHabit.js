@@ -1,58 +1,82 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { addHabit } from '../actions/index.js';
-import { DONE, NOTDONE, NOTSEEN } from '../actions/actionTypes';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addHabit } from "../actions/index";
+import { NONE } from "../actions/actionTypes";
+import { useNavigate } from "react-router-dom";
 import './AddHabit.css';
 
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { addHabit } from '../actions/index.js';
-import { DONE, NOTDONE, NOTSEEN } from '../actions/actionTypes';
-import './AddHabit.css';
-
-function AddHabit() {
-  const [value, setValue] = useState('');
+const AddHabits = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // hooks to set title and details of habit
+  const [title, setTitle] = useState("");
+  // const [details, setDetails] = useState("");
 
-    const newHabit = {
-      title: value,
-      days: [
-        {
-          day: 1,
-          status: NOTDONE,
-        },
-        {
-          day: 2,
-          status: DONE,
-        },
-        {
-          day: 3,
-          status: NOTSEEN,
-        },
-      ],
-    };
-    
-    dispatch(addHabit(newHabit));
-    setValue('');
-  }
+  // error states
+  const [titleError, setTitleError] = useState(false);
+  // const [detailsError, setDetailsError] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    // set error state to false of text fields
+    setTitleError(false);
+    // setDetailsError(false);
+
+    if (title === "") {
+      setTitleError(true);
+    }
+    console.log("title",title);
+    if (title) {
+      const habit = {
+        title,
+        days: [
+          {
+            day: 1,
+            status: NONE,
+          },
+          {
+            day: 2,
+            status: NONE,
+          },
+          {
+            day: 3,
+            status: NONE,
+          },
+          {
+            day: 4,
+            status: NONE,
+          },
+          {
+            day: 5,
+            status: NONE,
+          },
+          {
+            day: 6,
+            status: NONE,
+          },
+          {
+            day: 7,
+            status: NONE,
+          },
+        ],
+      };
+      console.log(habit);
+      dispatch(addHabit(habit));
+      navigate("/");
+    }
+  };
 
   return (
     <div>
-      <h1>Habit Tracker</h1>
-      <div className="add-page">
-        <form onSubmit={handleSubmit}>
-          <input value={value} onChange={(event) => setValue(event.target.value)} type="text"/>
-          <button type="submit">
-            + Add Habit
-          </button>
-        </form>
-      </div>
+      <form onSubmit={handleSubmit} className="add-page">
+        <input onChange={(event) => setTitle(event.target.value)}type="text"/>
+        <button type="submit">+ Add Habit</button>
+      </form>
     </div>
   );
-}
+};
 
-export default AddHabit;
-
+export default AddHabits;

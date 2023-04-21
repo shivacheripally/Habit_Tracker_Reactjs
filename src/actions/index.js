@@ -1,8 +1,8 @@
-import {DONE,NOTDONE,NOTSEEN,ADD_HABIT} from './actionTypes';
+import {DONE,NOT_DONE,NONE,ADD_HABIT} from './actionTypes';
 
-export function addHabit(newHabit){
-  return({
+export const addHabit = (habit) => {
+  return {
     type: ADD_HABIT,
-    newHabit
-  });
-}
+    payload: habit,
+  };
+};

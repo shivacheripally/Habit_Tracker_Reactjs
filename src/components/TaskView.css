@@ -28,3 +28,13 @@
 #menu h2 a:hover {
   text-decoration: underline;
 }
+
+.day-box{
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  min-height: 100px;
+  max-width: 300px;
+  width: 90%;
+  border: 1px solid black;
+}
