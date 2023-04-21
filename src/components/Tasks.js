@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { TaskView } from './index.js';
 import { connect } from 'react-redux';
+import './Task.css';
 
 function Tasks(props) {
   const habits = props.habits.habits;
@@ -11,13 +12,12 @@ function Tasks(props) {
   };
 
   return (
-    <div>
-      <h1>Tasks</h1>
+    <div className="task">
+      <h1>Habits</h1>
       {habits.map((habit, index) => {
         return (
-          <div key={`index-${index}`}>
+          <div  key={`index-${index}`}>
             <h4 onClick={handleClick}>{habit.title}</h4>
-            
             <TaskView habit={habit} menuVisibility={{visible}} clickEvent={handleClick} habits={habits} />
           </div>
         );

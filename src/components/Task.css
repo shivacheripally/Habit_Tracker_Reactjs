@@ -1,0 +1,18 @@
+.task h4{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(221, 178, 117);
+  border-radius: 10px;
+}
+
+.task h4:hover:before{
+  content: "view";
+  color: white;
+  width: 50px;
+  font-size: 15px;
+  background-color: red;
+  border-radius: 2px;
+  margin: 0 10px;
+}
+
