@@ -1,5 +1,6 @@
 import { ADD_HABIT, UPDATE_HABIT_STATUS,DONE, NOT_DONE, NONE } from '../actions/actionTypes';
-
+import {days} from '../days.js';
+console.log(days);
 const initialState = {
   habits: [
     {

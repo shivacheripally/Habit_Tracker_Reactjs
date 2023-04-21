@@ -15,10 +15,10 @@ function Tasks(props) {
       <h1>Tasks</h1>
       {habits.map((habit, index) => {
         return (
-          <div>
+          <div key={`index-${index}`}>
             <h4 onClick={handleClick}>{habit.title}</h4>
             
-            <TaskView habit={habit} key={`index-${index}`} menuVisibility={{visible}} clickEvent={handleClick} habits={habits} />
+            <TaskView habit={habit} menuVisibility={{visible}} clickEvent={handleClick} habits={habits} />
           </div>
         );
       })}
