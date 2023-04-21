@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { addHabit } from "../actions/index";
 import { NONE } from "../actions/actionTypes";
 import { useNavigate } from "react-router-dom";
+import {days} from '../days.js';
 import './AddHabit.css';
 
 const AddHabits = () => {
@@ -32,36 +33,7 @@ const AddHabits = () => {
     if (title) {
       const habit = {
         title,
-        days: [
-          {
-            day: 1,
-            status: NONE,
-          },
-          {
-            day: 2,
-            status: NONE,
-          },
-          {
-            day: 3,
-            status: NONE,
-          },
-          {
-            day: 4,
-            status: NONE,
-          },
-          {
-            day: 5,
-            status: NONE,
-          },
-          {
-            day: 6,
-            status: NONE,
-          },
-          {
-            day: 7,
-            status: NONE,
-          },
-        ],
+        days
       };
       console.log(habit);
       dispatch(addHabit(habit));

@@ -5,36 +5,7 @@ const initialState = {
   habits: [
     {
       title: 'Go to Gym',
-      days: [
-        {
-          day: 1,
-          status: DONE,
-        },
-        {
-          day: 2,
-          status: NOT_DONE,
-        },
-        {
-          day: 3,
-          status: NONE,
-        },
-        {
-          day: 4,
-          status: DONE,
-        },
-        {
-          day: 5,
-          status: NONE,
-        },
-        {
-          day: 6,
-          status: NOT_DONE,
-        },
-        {
-          day: 7,
-          status: NOT_DONE,
-        }
-      ]
+      days,
     }
   ]
 };
@@ -50,20 +21,19 @@ const reducer = (state = initialState, action) => {
     // habits = [title, description, consistency[day, status]]
 
     case UPDATE_HABIT_STATUS:
-      // get index of title from habits array
-      const idx = state.habits
-        .map((e) => {
-          return e.title;
-        })
-        .indexOf(action.title);
+      console.log("action",action);
 
-      // use day - 1 as index of consistency array and change status of habit
-      if (action.payload === DONE) {
-        state.habits[idx].consistency[action.day - 1].status = NOT_DONE;
-      } else if (action.payload === NOT_DONE) {
-        state.habits[idx].consistency[action.day - 1].status = NONE;
-      } else if (action.payload === NONE) {
-        state.habits[idx].consistency[action.day - 1].status = DONE;
+      const titleIndex = state.habits.map((habit, index) => {
+        if (habit.title === action.title) {
+          return index;
+        }
+      }).filter(item => item !== undefined)[0];
+
+      console.log("titleIndex",titleIndex);
+      
+      if(action.status === DONE){
+        state.habits[titleIndex].days[action.dayIndex].status = DONE
+        console.log("if done",state.habits[titleIndex].days[action.dayIndex]);
       }
       return state;
     default:
