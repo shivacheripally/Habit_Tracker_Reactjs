@@ -19,6 +19,7 @@ button{
 }
 
 .add-page input{
+  margin-top: 20px;
   padding: 10px;
   height: auto;
   font-size: 25px;

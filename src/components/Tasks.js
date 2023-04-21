@@ -6,9 +6,11 @@ import './Task.css';
 function Tasks(props) {
   const habits = props.habits.habits;
   const [visible, setVisible] = useState(false);
+  const [habitIndex,setHabitIndex] = useState(0);
 
-  const handleClick = (e) => {
+  const handleClick = (value) => {
     setVisible(!visible);
+    setHabitIndex(value);
   };
 
   return (
@@ -17,8 +19,8 @@ function Tasks(props) {
       {habits.map((habit, index) => {
         return (
           <div  key={`index-${index}`}>
-            <h4 onClick={handleClick}>{habit.title}</h4>
-            <TaskView habit={habit} menuVisibility={{visible}} clickEvent={handleClick} habits={habits} />
+            <h4 onClick={()=>handleClick(index)}>{habit.title}</h4>
+            <TaskView menuVisibility={{visible,habitIndex}} clickEvent={handleClick} habits={habits} />
           </div>
         );
       })}
