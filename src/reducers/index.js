@@ -23,17 +23,18 @@ const initialStatus = {
   ]
 }
 
-export default function Status(state = initialStatus,action){
-  console.log("action",action.newHabit);
-  switch(action.type){
+export default function Status(state = initialStatus, action) {
+  // console.log("action", action.newHabit);
+  switch (action.type) {
     case ADD_HABIT:
-    console.log("ADDHABIT",state);
-    return{
-      habits:[...state.habits,action.newHabit]
-    }
+      // console.log("ADDHABIT", state);
+      return {
+        habits: Array.isArray(state.habits)
+          ? [...state.habits, action.newHabit]
+          : [action.newHabit],
+      };
     default:
-    return {
-      state
-    }
+      return state;
   }
 }
+
