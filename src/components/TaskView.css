@@ -39,6 +39,7 @@
   margin-bottom: 10px;
   min-height: 100px;
   max-width: 300px;
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -54,4 +55,10 @@
 
 .icons:hover{
   cursor: pointer;
+}
+
+@media screen and (max-width:768px){
+  .day-box{
+    width: 90%;
+  }
 }
