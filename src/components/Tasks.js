@@ -19,7 +19,7 @@ function Tasks(props) {
       {habits.map((habit, index) => {
         return (
           <div  key={`index-${index}`}>
-            <h4 onClick={()=>handleClick(index)}>{habit.title}</h4>
+            <h2 onClick={()=>handleClick(index)}>{habit.title}</h2>
             <TaskView menuVisibility={{visible,habitIndex}} clickEvent={handleClick} habits={habits} />
           </div>
         );
