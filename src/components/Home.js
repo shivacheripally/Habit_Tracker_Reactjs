@@ -1,6 +1,5 @@
 import React from 'react';
 import {days,quotations} from '../days.js';
-import './Home.css';
 
 const currentDate = new Date();
 const date = currentDate.getDate();
@@ -15,7 +14,7 @@ const dayName = daysOfWeek[day];
 const todayQuote = quotations[day];
 function Home() {
   return (
-      <div>
+      <div style={{backgroundColor:"black"}}>
         <h1 style={{color:"white"}}>Welcome to Habit Tracker</h1>
         <h1 style={{color:"white"}}>{days[0].day}</h1>
         <h1 style={{color:"white"}}>{dayName}</h1>
